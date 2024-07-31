@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,6 +16,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="description" content="Registry of Slinks. Use Starknet applications directly from Twitter as embed cards in tweets." />
+        <meta name="twitter:card" content="player" />
+        <meta name="twitter:site" content="https://x.com/ultimatedigits" />
+        <meta name="twitter:title" content="thiru testing" />
+        <meta name="twitter:description" content="testing the winks please work" />
+        <meta name="twitter:player" content="https://winktest.vercel.app/" />
+        <meta name="twitter:player:width" content="360" />
+        <meta name="twitter:player:height" content="560" />
+        <meta name="twitter:image" content="https://cryptologos.cc/logos/starknet-token-strk-logo.png?v=032" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <link rel="apple-touch-icon" href="/logo192.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <title>React App</title>
+      </Head>
       <body className={inter.className}>{children}</body>
     </html>
   );

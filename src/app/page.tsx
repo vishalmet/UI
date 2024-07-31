@@ -5,7 +5,36 @@ import Home from "./Home/Home";
 import "@/app/globals.css";
 // import { Analytics } from "@vercel/analytics/react";
 
+import '@rainbow-me/rainbowkit/styles.css';
+
+import {
+  getDefaultConfig,
+  RainbowKitProvider,
+} from '@rainbow-me/rainbowkit';
+import { WagmiProvider } from 'wagmi';
+import {
+  mainnet,
+  polygon,
+  optimism,
+  arbitrum,
+  base,
+  baseSepolia
+} from 'wagmi/chains';
+import {
+  QueryClientProvider,
+  QueryClient,
+} from "@tanstack/react-query";
+
+const config = getDefaultConfig({
+  appName: 'My RainbowKit App',
+  projectId: 'YOUR_PROJECT_ID',
+  chains: [ baseSepolia],
+  ssr: true, // If your dApp uses server side rendering (SSR)
+});
+
 export default function Page() {
+  const queryClient = new QueryClient();
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -33,6 +62,9 @@ export default function Page() {
           rel="stylesheet"
         />
       </head> */}
+      <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider>
       <main className="">
         {/* <Analytics /> */}
         {/* {loading && <Loader />} */}
@@ -40,6 +72,9 @@ export default function Page() {
           <Home />
         </div>
       </main>
+      </RainbowKitProvider>
+      </QueryClientProvider>
+      </WagmiProvider>
     </>
   );
 }

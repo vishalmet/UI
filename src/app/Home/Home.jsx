@@ -3,6 +3,7 @@ import React from "react";
 // import Connect from "../../components/Connect"
 import Lottie from "lottie-react";
 import Illustration from "../../../public/illustrations.json";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const Home = () => {
   return (
@@ -11,9 +12,7 @@ const Home = () => {
       <div className=" items-center space-y-6 ">
         {/* just for reference */}
         <div className="flex justify-center">
-          <button className="text-white bg-gradient-to-t from-pink-500 via-red-500 to-yellow-500 hover:from-yellow-500 hover:via-red-500 hover:to-pink-500 w-full hover:shadow-xl p-3 rounded text-xs md:text-base border-b-2 border-white">
-            Connect Wallet
-          </button>
+        <ConnectButton />
 
 
         </div>
